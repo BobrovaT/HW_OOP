@@ -75,4 +75,15 @@ class RadioTest {
 
     }
 
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/currentVolumeTest")
+    public void currentVolumeTest(int expected, int currentVolume) {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(currentVolume);
+
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
 }
